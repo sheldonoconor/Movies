@@ -1,7 +1,8 @@
 import {MovieService} from "../services/MovieService";
 import {MOVIES_GET_MOVIES,
 	MOVIES_DELETE_MOVIE,
-MOVIES_TOGGLE_FAVORITE} from "../reducers/moviesReducer";
+	MOVIES_TOGGLE_FAVORITE,
+	MOVIES_UPDATE_AVG_VOTE} from "../reducers/moviesReducer";
 
 const movieService = new MovieService('7');
 
@@ -17,6 +18,12 @@ export const deleteMovie = (index: number) => ({
 
 export const toggleFavoriteMovie = (index: number) => ({
 	type: MOVIES_TOGGLE_FAVORITE,
+	index
+});
+
+export const updateVote = (value: number, index: number) => ({
+	type: MOVIES_UPDATE_AVG_VOTE,
+	value,
 	index
 });
 
